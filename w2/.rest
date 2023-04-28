@@ -1,0 +1,11 @@
+
+GET http://localhost:8188/contacts
+###
+GET http://localhost:8188/contacts/64499b7ff6dfb07ca95a03ae
+###
+GET http://localhost:8188/contacts/64499fb60ace58d2904459da
+###
+# Render
+GET https://wilding-cse-341.onrender.com/contacts
+###
+GET https://wilding-cse-341.onrender.com/contacts/64499fcd0ace58d2904459db
