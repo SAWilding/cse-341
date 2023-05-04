@@ -1,16 +1,16 @@
-const dotenv = require('dotenv');
-dotenv.config();
-var express = require("express");
+import { config } from 'dotenv';
+config();
+import express from "express";
 var app = express();
-const bodyParser = require('body-parser');
-const contactsRoutes = require('./routes/contacts');
-const mongodb = require("./db/connect");
+import { json, urlencoded } from 'body-parser';
+import contactsRoutes from './routes/contacts';
+import mongodb from "./db/connect";
 
 // Get environment variables
 const port = process.env.PORT | 5500;
 // Routes
-app.use(bodyParser.json())
-    .use(bodyParser.urlencoded({ extended: true }))
+app.use(json())
+    .use(urlencoded({ extended: true }))
     .use((req, res, next) => {
       res.setHeader("Access-Control-Allow-Origin", "*");
       next();
