@@ -10,6 +10,36 @@
   "schemes": [
     "https"
   ],
+  "components": {
+    "schemas": {
+      "Contact": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "example": "Tom"
+          },
+          "lastName": {
+            "type": "string",
+            "example": "Wilding"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "favoriteColor": {
+            "type": "string",
+            "example": "blue"
+          },
+          "birthday": {
+            "type": "string",
+            "format": "date"
+          }
+        },
+        "required": ["firstName", "lastName", "email", "favoriteColor", "birthday"]
+      }
+    }
+  },
   "paths": {
     "/": {
       "get": {
@@ -31,24 +61,7 @@
             "name": "body",
             "in": "body",
             "schema": {
-              "type": "object",
-              "properties": {
-                "firstName": {
-                  "example": "Tom"
-                },
-                "lastName": {
-                  "example": "Wilding"
-                },
-                "email": {
-                  "example": "tom@gmail.com"
-                },
-                "favoriteColor": {
-                  "example": "blue"
-                },
-                "birthday": {
-                  "example": "3/29/1970"
-                }
-              }
+              "$ref": "#/components/schemas/Contact"
             }
           }
         ],
@@ -61,7 +74,7 @@
     },
     "/{id}": {
       "get": {
-        "description": "",
+        "description": "Get a contact from the database based on ID.",
         "produces": [
           "application/json"
         ],
@@ -80,7 +93,7 @@
         }
       },
       "put": {
-        "description": "",
+        "description": "Update a contact from the database based on ID.",
         "parameters": [
           {
             "name": "id",
@@ -92,24 +105,7 @@
             "name": "body",
             "in": "body",
             "schema": {
-              "type": "object",
-              "properties": {
-                "firstName": {
-                  "example": "Allison"
-                },
-                "lastName": {
-                  "example": "Wilding"
-                },
-                "email": {
-                  "example": "allison@gmail.com"
-                },
-                "favoriteColor": {
-                  "example": "magenta"
-                },
-                "birthday": {
-                  "example": "1/4/1972"
-                }
-              }
+              "$ref": "#/components/schemas/Contact"
             }
           }
         ],
@@ -120,7 +116,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "Delete a contact from the database based on ID.",
         "parameters": [
           {
             "name": "id",
