@@ -5,7 +5,7 @@
     "description": "API for CSE 341",
     "version": "1.0.0"
   },
-  "host": "localhost:8188/contacts",
+  "host": "https://wilding-cse-341.onrender.com/contacts",
   "basePath": "/",
   "schemes": [
     "http"
