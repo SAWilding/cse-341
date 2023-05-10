@@ -1,0 +1,30 @@
+
+GET http://localhost:8188/contacts
+###
+GET http://localhost:8188/contacts/64499b7ff6dfb07ca95a03ae
+###
+GET http://localhost:8188/contacts/64499fb60ace58d2904459da
+###
+POST http://localhost:8188/contacts
+Content-Type: application/json
+
+{
+    "firstName": "Elyssa",
+    "lastName": "Hancock",
+    "email": "elyssa@email.com",
+    "favoritecolor": "yellow",
+    "birthday": "11/09/1999"
+}
+### 
+PUT http://localhost:8188/contacts/64540d0ecdca455c937f1ce4
+Content-Type: application/json
+
+{
+    "firstName": "Matthew",
+    "lastName": "Wilding",
+    "email": "matthew@email.com",
+    "favoriteColor": "orange",
+    "birthday": "11/09/1999"
+}
+###
+DELETE http://localhost:8188/contacts/64540d0ecdca455c937f1ce4
