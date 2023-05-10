@@ -72,7 +72,7 @@
         }
       }
     },
-    "contacts/{id}": {
+    "/contacts/{id}": {
       "get": {
         "description": "Get a contact from the database based on ID.",
         "produces": [
