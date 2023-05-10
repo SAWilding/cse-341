@@ -5,7 +5,7 @@
     "description": "API for CSE 341",
     "version": "1.0.0"
   },
-  "host": "wilding-cse-341.onrender.com/contacts",
+  "host": "wilding-cse-341.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
@@ -41,7 +41,7 @@
     }
   },
   "paths": {
-    "/": {
+    "/contacts": {
       "get": {
         "description": "",
         "produces": [
@@ -72,7 +72,7 @@
         }
       }
     },
-    "/{id}": {
+    "contacts/{id}": {
       "get": {
         "description": "Get a contact from the database based on ID.",
         "produces": [
