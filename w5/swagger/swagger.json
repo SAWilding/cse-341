@@ -1,0 +1,136 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Pickleball Courts",
+    "description": "API for CSE 341",
+    "version": "1.0.0"
+  },
+  "host": "wilding-cse-341.onrender.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "components": {
+    "schemas": {
+      "Court": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Porter Park Court"
+          },
+          "condition": {
+            "type": "string",
+            "example": "excellent"
+          },
+          "color": {
+            "type": "string",
+            "example": "blue"
+          },
+          "latitude": {
+            "type": "float",
+            "example": 43.8230392594719
+          },
+          "longitude": {
+            "type": "float",
+            "example": -111.79129592907756
+          }
+        },
+        "required": ["firstName", "lastName", "email", "favoriteColor", "birthday"]
+      }
+    }
+  },
+  "paths": {
+    "/courts": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/components/schemas/Court"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/courts/{id}": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/components/schemas/Court"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+# Render
+GET https://wilding-cse-341.onrender.com/contacts
+###
+GET https://wilding-cse-341.onrender.com/contacts/64499fcd0ace58d2904459db
+###
+POST https://wilding-cse-341.onrender.com/contacts
+Content-Type: application/json
+
+{
+    "firstName": "Katelyn",
+    "lastName": "Wilding",
+    "email": "katelyn@email.com",
+    "favoritecolor": "purple",
+    "birthday": "11/09/1999"
+}
+### 
+PUT https://wilding-cse-341.onrender.com/contacts/645419baa1517e95e3e10434
+Content-Type: application/json
+
+{
+    "firstName": "Matthew",
+    "lastName": "Wilding",
+    "email": "matthew@email.com",
+    "favoriteColor": "orange",
+    "birthday": "11/09/1999"
+}
+###
+DELETE https://wilding-cse-341.onrender.com/contacts/645419baa1517e95e3e10434
