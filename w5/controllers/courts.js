@@ -25,6 +25,7 @@ const getCourt = async (req, res, next) => {
 };
 
 const insertCourt = async (req, res, next) => {
+  // throw new Error();
   try {
     const collection = await mongodb.getDb().db('w5-8').collection('pickleball-courts');
     const result = await collection.insertOne(req.body);

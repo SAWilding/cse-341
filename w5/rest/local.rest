@@ -1,30 +1,32 @@
 
-GET http://localhost:8188/contacts
+GET http://localhost:8188/courts
 ###
-GET http://localhost:8188/contacts/64499b7ff6dfb07ca95a03ae
+
+GET http://localhost:8188/courts/6466a828c826294f0e9d895d
+
 ###
-GET http://localhost:8188/contacts/64499fb60ace58d2904459da
-###
-POST http://localhost:8188/contacts
+
+POST http://localhost:8188/courts
 Content-Type: application/json
 
 {
-    "firstName": "Elyssa",
-    "lastName": "Hancock",
-    "email": "elyssa@email.com",
-    "favoritecolor": "yellow",
-    "birthday": "11/09/1999"
+    "name":"Porter Park Court",
+    "condition":"excellent",
+    "color":"blue",
+    "latitude": 43.8230392594719,
+    "longitude": -111.79129592907756
 }
+
 ### 
-PUT http://localhost:8188/contacts/64540d0ecdca455c937f1ce4
+PUT http://localhost:8188/courts/6466a5faeabd076bf67e6f5a
 Content-Type: application/json
 
 {
-    "firstName": "Matthew",
-    "lastName": "Wilding",
-    "email": "matthew@email.com",
-    "favoriteColor": "orange",
-    "birthday": "11/09/1999"
+    "name":"Porter Park Court",
+    "condition":"excellent",
+    "color":"blue",
+    "latitude": 43.8230392594719 , 
+    "longitude": -111.79129592907756
 }
 ###
-DELETE http://localhost:8188/contacts/64540d0ecdca455c937f1ce4
+DELETE http://localhost:8188/courts/64540d0ecdca455c937f1ce4

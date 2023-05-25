@@ -1,11 +1,17 @@
 const routes = require('express').Router();
-
+const { handleErrors } = require('../ultilities/ultils.js');
 const MyController = require('../controllers/courts');
+const {
+  validateRequest,
+  getRules,
+  deleteRules,
+  putAndPostRules
+} = require('../ultilities/validation.js');
 
-routes.get('/', MyController.getCourts);
-routes.get('/:id', MyController.getCourt);
-routes.post('/', MyController.insertCourt);
-routes.put('/:id', MyController.updateCourt);
-routes.delete('/:id', MyController.removeCourt);
+routes.get('/', getRules, validateRequest, handleErrors(MyController.getCourts));
+routes.get('/:id', getRules, validateRequest, handleErrors(MyController.getCourt));
+routes.post('/', putAndPostRules(), validateRequest, handleErrors(MyController.insertCourt));
+routes.put('/:id', putAndPostRules(), validateRequest, handleErrors(MyController.updateCourt));
+routes.delete('/:id', deleteRules, validateRequest, handleErrors(MyController.removeCourt));
 
 module.exports = routes;
