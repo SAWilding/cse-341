@@ -1,28 +1,28 @@
 # Render
-GET https://wilding-cse-341.onrender.com/contacts
+GET https://wilding-cse-341.onrender.com/courts
 ###
-GET https://wilding-cse-341.onrender.com/contacts/64499fcd0ace58d2904459db
+GET https://wilding-cse-341.onrender.com/courts/64499fcd0ace58d2904459db
 ###
-POST https://wilding-cse-341.onrender.com/contacts
+POST https://wilding-cse-341.onrender.com/courts
 Content-Type: application/json
 
 {
-    "firstName": "Katelyn",
-    "lastName": "Wilding",
-    "email": "katelyn@email.com",
-    "favoritecolor": "purple",
-    "birthday": "11/09/1999"
+    "name":"Porter Park Court",
+    "condition":"excellent",
+    "color":"blue",
+    "latitude": 43.8230392594719,
+    "longitude": -111.79129592907756
 }
 ### 
-PUT https://wilding-cse-341.onrender.com/contacts/645419baa1517e95e3e10434
+PUT https://wilding-cse-341.onrender.com/courts/6466a828c826294f0e9d895d
 Content-Type: application/json
 
 {
-    "firstName": "Matthew",
-    "lastName": "Wilding",
-    "email": "matthew@email.com",
-    "favoriteColor": "orange",
-    "birthday": "11/09/1999"
+    "name":"Porter Park Court",
+    "condition":"excellent",
+    "color":"purple",
+    "latitude": 43.8230392594719,
+    "longitude": -111.79129592907756
 }
 ###
-DELETE https://wilding-cse-341.onrender.com/contacts/645419baa1517e95e3e10434
+DELETE https://wilding-cse-341.onrender.com/courts/645419baa1517e95e3e10434

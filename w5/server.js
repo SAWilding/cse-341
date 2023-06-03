@@ -8,6 +8,7 @@ const courtsRoutes = require('./routes/courts');
 const mongodb = require('./db/connect');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDoc = require('./swagger/swagger.json');
+
 // Get environment variables
 const port = process.env.PORT | 5500;
 // Routes
@@ -20,6 +21,7 @@ app
     res.setHeader('Access-Control-Allow-Origin', '*');
     next();
   })
+  .use(new OAuth2Strategy({}))
   .use('/courts', courtsRoutes);
 
 mongodb.initDb((err, mongodb) => {
