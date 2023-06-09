@@ -11,6 +11,8 @@ const store = new MongoDBStore({
   collection: 'sessions'
 });
 
+app.set('trust proxy', 1);
+
 app
   .use(
     session({
@@ -18,7 +20,7 @@ app
       resave: false,
       saveUninitialized: false,
       store: store,
-      cookie: { secure: true, maxAge: 24 * 60 * 60 * 1000 }
+      cookie: { htppOnly: true, secure: true, maxAge: 24 * 60 * 60 * 1000 }
     })
   )
   .use(passport.initialize())
