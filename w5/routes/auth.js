@@ -3,6 +3,7 @@ const GitHubStrategy = require('passport-github2').Strategy;
 const passport = require('passport');
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
+const mongodb = require('../db/connect');
 
 // OAuth 2
 
@@ -40,8 +41,23 @@ passport.use(
       clientSecret: process.env.CLIENTSECRET,
       callbackURL: 'https://wilding-cse-341.onrender.com/auth/github/callback'
     },
-    function (accessToken, refreshToken, profile, cb) {
-      cb(null, profile);
+    async function (accessToken, refreshToken, profile, cb) {
+      const username = profile.username;
+
+      const userDocument = {
+        username: username
+      };
+
+      try {
+        const collection = await mongodb.getDb().db('w5-8').collection('users');
+
+        const result = await collection.insertOne(userDocument);
+        // Handle the result if needed
+
+        cb(null, profile);
+      } catch (error) {
+        cb(error);
+      }
     }
   )
 );
