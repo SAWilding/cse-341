@@ -9,19 +9,21 @@ const authRoutes = require('./routes/auth');
 const mongodb = require('./db/connect');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDoc = require('./swagger/swagger.json');
-
 // Get environment variables
 const port = process.env.PORT | 5500;
+global.swagger = false;
 
 const isAuth = (req, res, next) => {
-  // Check if the request is coming from the Swagger UI
-
   // Perform authentication for other requests
   if (req.user) {
     next();
   } else {
     res.redirect('/login');
   }
+};
+const swaggerAuthMiddleware = (req, res, next) => {
+  global.swagger = true;
+  next();
 };
 
 // Routes
@@ -33,7 +35,17 @@ app
     res.setHeader('Access-Control-Allow-Origin', '*');
     next();
   })
-  .use('/api-docs', isAuth, swaggerUi.serve, swaggerUi.setup(swaggerDoc))
+  .use(
+    '/api-docs',
+    swaggerAuthMiddleware,
+    (req, res, next) => {
+      req = res.modifiedReq;
+      next();
+    },
+    isAuth,
+    swaggerUi.serve,
+    swaggerUi.setup(swaggerDoc)
+  )
   .use('/', authRoutes)
   .use('/courts', courtsRoutes);
 

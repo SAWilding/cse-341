@@ -9,10 +9,9 @@ const {
 } = require('../ultilities/validation.js');
 
 const isAuth = (req, res, next) => {
-  // Check if the request is coming from the Swagger UI
-  console.log(req.user);
+  console.log(req.originalUrl);
   // Perform authentication for other requests
-  if (req.user) {
+  if (req.user || swagger) {
     next();
   } else {
     res.redirect('/login');

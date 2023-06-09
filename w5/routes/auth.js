@@ -28,7 +28,7 @@ passport.use(
     {
       clientID: process.env.CLIENTID,
       clientSecret: process.env.CLIENTSECRET,
-      callbackURL: 'http://127.0.0.1:8188/auth/github/callback'
+      callbackURL: 'https://wilding-cse-341.onrender.com/auth/github/callback'
     },
     function (accessToken, refreshToken, profile, cb) {
       cb(null, profile);
@@ -37,8 +37,6 @@ passport.use(
 );
 
 const isAuth = (req, res, next) => {
-  // Check if the request is coming from the Swagger UI
-
   // Perform authentication for other requests
   if (req.user) {
     next();
@@ -48,6 +46,7 @@ const isAuth = (req, res, next) => {
 };
 
 routes.get('/', isAuth, (req, res) => {
+  swagger = false;
   res.sendFile(__dirname + '/dashboard.html');
 });
 
@@ -59,6 +58,7 @@ routes.get('/login', (req, res) => {
 });
 
 routes.get('/logout', (req, res) => {
+  swagger = false;
   req.logout(function (err) {
     if (err) {
       // Handle any error that occurred during logout
