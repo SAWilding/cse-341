@@ -52,7 +52,6 @@ passport.use(
         const collection = await mongodb.getDb().db('w5-8').collection('users');
 
         const result = await collection.insertOne(userDocument);
-        // Handle the result if needed
 
         cb(null, profile);
       } catch (error) {
@@ -77,6 +76,7 @@ routes.get('/', isAuth, (req, res) => {
 });
 
 routes.get('/login', (req, res) => {
+  swagger = false;
   if (req.session.user) {
     return res.redirect('/');
   }
