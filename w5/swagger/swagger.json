@@ -5,7 +5,7 @@
     "description": "API for CSE 341",
     "version": "1.0.0"
   },
-  "host": "https://wilding-cse-341.onrender.com",
+  "host": "wilding-cse-341.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
