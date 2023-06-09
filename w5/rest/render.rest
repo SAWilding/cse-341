@@ -11,18 +11,22 @@ Content-Type: application/json
     "condition":"excellent",
     "color":"blue",
     "latitude": 43.8230392594719,
-    "longitude": -111.79129592907756
+    "longitude": -111.79129592907756,
+    "freqency": "low",
+    "regulation size": "yes"
 }
 ### 
 PUT https://wilding-cse-341.onrender.com/courts/6466a828c826294f0e9d895d
 Content-Type: application/json
 
 {
-    "name":"Porter Park Court",
-    "condition":"excellent",
-    "color":"purple",
-    "latitude": 43.8230392594719,
-    "longitude": -111.79129592907756
+    "name":"Ogden Court",
+    "condition":"good",
+    "color":"green",
+    "latitude": 50.1234123421,
+    "longitude": -120.0987987,
+    "freqency": "high",
+    "regulation size": "yes"
 }
 ###
-DELETE https://wilding-cse-341.onrender.com/courts/645419baa1517e95e3e10434
+DELETE https://wilding-cse-341.onrender.com/courts/64836612d65800985ef80584

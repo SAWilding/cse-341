@@ -34,9 +34,53 @@
           "longitude": {
             "type": "float",
             "example": -111.79129592907756
+          },
+          "frequency" : {
+            "type": "string",
+            "example": "high"
+          },
+          "regulation size" : {
+            "type": "string",
+            "example": "yes"
           }
+        
         },
-        "required": ["firstName", "lastName", "email", "favoriteColor", "birthday"]
+        "required": ["name", "condition", "color", "latitude", "longitude", "frequency", "regulation size"]
+      },
+      "CourtUpdated": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Odgen Court"
+          },
+          "condition": {
+            "type": "string",
+            "example": "good"
+          },
+          "color": {
+            "type": "string",
+            "example": "green"
+          },
+          "latitude": {
+            "type": "float",
+            "example": 43.8230392594719
+          },
+          "longitude": {
+            "type": "float",
+            "example": -111.79129592907756
+          },
+          "frequency" : {
+            "type": "string",
+            "example": "low"
+          },
+          "regulation size" : {
+            "type": "string",
+            "example": "yes"
+          }
+        
+        },
+        "required": ["name", "condition", "color", "latitude", "longitude", "frequency", "regulation size"]
       }
     }
   },
@@ -105,7 +149,7 @@
             "name": "body",
             "in": "body",
             "schema": {
-              "$ref": "#/components/schemas/Court"
+              "$ref": "#/components/schemas/CourtUpdated"
             }
           }
         ],
