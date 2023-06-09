@@ -2,7 +2,14 @@ const routes = require('express').Router();
 const GitHubStrategy = require('passport-github2').Strategy;
 const passport = require('passport');
 const session = require('express-session');
+const MongoDBStore = require('connect-mongodb-session')(session);
+
 // OAuth 2
+
+const store = new MongoDBStore({
+  uri: process.env.URI,
+  collection: 'sessions'
+});
 
 app
   .use(
@@ -10,7 +17,8 @@ app
       secret: '123456',
       resave: false,
       saveUninitialized: false,
-      cookie: { httpOnly: true, secure: false, maxAge: 24 * 60 * 60 * 1000 }
+      store: store,
+      cookie: { secure: true, maxAge: 24 * 60 * 60 * 1000 }
     })
   )
   .use(passport.initialize())
